@@ -122,6 +122,46 @@ fetch('http://api.github.com/users/margaret-jihua')
     let githubName = data.name
 
     let mars = new GithubProfile(githubName, githubName, githubURL)
-    console.log(mars);
-    mars.intro()
+    //console.log(mars);
+    //mars.intro()
+})
+
+
+var isMomHappy = false;
+
+// Promise
+// var willIGetNewPhone = new Promise(
+//     function (resolve, reject) {
+//         if (isMomHappy) {
+//             var phone = {
+//                 brand: 'Samsung',
+//                 color: 'black'
+//             };
+//             resolve(phone); // fulfilled
+//         } else {
+//             var reason = new Error('mom is not happy');
+//             reject(reason); // reject
+//         }
+
+//     }
+// );
+
+
+
+let willIGetNewPhone = new Promise((resolve, reject) => {
+    if (isMomHappy) {
+        const phone = {
+            brand: 'iphone',
+            color: 'red'
+        }
+        resolve(phone)
+    }
+    else {
+        reject('No phone')
+    }    
+})
+
+
+willIGetNewPhone.then(result => {
+    console.log(result);
 })
