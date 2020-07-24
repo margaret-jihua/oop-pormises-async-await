@@ -112,22 +112,22 @@ class GithubProfile {
     }
 }
 
-fetch('http://api.github.com/users/margaret-jihua')
-.then(response => {
-    return response.json()
-})
-.then(data => {
-    let githubURL = data.url
-    let githubUSername = data.login
-    let githubName = data.name
+// fetch('')
+// .then(response => {
+//     return response.json()
+// })
+// .then(data => {
+//     let githubURL = data.url
+//     let githubUSername = data.login
+//     let githubName = data.name
 
-    let mars = new GithubProfile(githubName, githubName, githubURL)
-    //console.log(mars);
-    //mars.intro()
-})
+//     let mars = new GithubProfile(githubName, githubName, githubURL)
+//     //console.log(mars);
+//     //mars.intro()
+// })
 
 
-var isMomHappy = false;
+var isMomHappy = true;
 
 // Promise
 // var willIGetNewPhone = new Promise(
@@ -165,3 +165,26 @@ let willIGetNewPhone = new Promise((resolve, reject) => {
 willIGetNewPhone.then(result => {
     console.log(result);
 })
+
+
+// fetch(endpoint).then(res => {return res.json()})
+
+//Async & Awaits
+async function printUsers() {
+    const endpoint = 'http://api.github.com/users/margaret-jihua';
+    const romepoint = 'http://api.github.com/users/romebell'
+    let mars = await fetch(endpoint).then(res => res.json());
+    let rome = await fetch(romepoint).then(res => res.json());
+    //console.log(mars);
+    //console.log(rome);
+  }
+  printUsers();
+
+  //
+  async function printFacebook(){
+      let facebookEndpoint = 'http://api.github.com/users/facebook'
+      let facebook = await fetch(facebookEndpoint).then(res => res.json())
+      console.log(facebook.login);
+  }
+
+  printFacebook()
